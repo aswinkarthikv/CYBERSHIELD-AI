@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-cyber-bg: #020617;
+  --color-cyber-card: rgba(15, 23, 42, 0.6);
+  --color-cyber-cyan: #06b6d4;
+  --color-cyber-blue: #3b82f6;
+  --color-cyber-purple: #8b5cf6;
+  --color-cyber-border: rgba(51, 65, 85, 0.4);
+}
+
+/* Custom cyber-glow keyframes */
+@keyframes cyber-pulse {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.2)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.6)); }
+}
+
+@keyframes scan-down {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes grid-glow {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.25; }
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 2s infinite;
+}
+
+.animate-scan-down {
+  animation: scan-down 3s infinite linear;
+}
+
+.animate-grid-glow {
+  animation: grid-glow 4s infinite ease-in-out;
+}
+
+/* Custom scrollbars for high tech visual */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(10, 15, 30, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.5);
+}
+
+/* Selection and utility states */
+::selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ===================================================================
+   LIGHT THEME OVERRIDES
+   Applied when <html data-theme="light">
+   =================================================================== */
+
+[data-theme="light"] {
+  /* ---- Theme CSS Custom Properties ---- */
+  --color-cyber-bg: #f1f5f9;
+  --color-cyber-card: rgba(255, 255, 255, 0.85);
+  --color-cyber-cyan: #0891b2;
+  --color-cyber-blue: #2563eb;
+  --color-cyber-purple: #7c3aed;
+  --color-cyber-border: rgba(203, 213, 225, 0.6);
+}
+
+/* ---------- Root Container / Body ---------- */
+[data-theme="light"],
+[data-theme="light"] body {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+/* ---------- Main App Background ---------- */
+[data-theme="light"] .bg-\[\#020617\] {
+  background-color: #f1f5f9 !important;
+}
+[data-theme="light"] .bg-\[\#030712\] {
+  background-color: #ffffff !important;
+}
+
+/* ---------- Background Gradient Overlays ---------- */
+[data-theme="light"] .bg-\[radial-gradient\(ellipse_at_top\2c _var\(--tw-gradient-stops\)\)\] {
+  background: radial-gradient(ellipse at top, rgba(219,234,254,0.4), #f1f5f9, #f1f5f9) !important;
+}
+[data-theme="light"] .bg-\[linear-gradient\(rgba\(255\2c 255\2c 255\2c 0\.002\)_1px\2c transparent_1px\)\2c linear-gradient\(90deg\2c rgba\(255\2c 255\2c 255\2c 0\.002\)_1px\2c transparent_1px\)\] {
+  background: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px) !important;
+}
+
+/* ---------- Sidebar & Header Panels ---------- */
+[data-theme="light"] .bg-\[\#0f172a\]\/80,
+[data-theme="light"] .bg-\[\#0f172a\]\/85,
+[data-theme="light"] .bg-\[\#0f172a\] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* ---------- Cards, Modals & Surfaces ---------- */
+[data-theme="light"] .bg-\[\#0f172a\]\/60 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+[data-theme="light"] .bg-slate-900\/80 {
+  background-color: rgba(241, 245, 249, 0.85) !important;
+}
+[data-theme="light"] .bg-slate-900\/60 {
+  background-color: rgba(241, 245, 249, 0.7) !important;
+}
+[data-theme="light"] .bg-slate-900\/45 {
+  background-color: rgba(226, 232, 240, 0.55) !important;
+}
+[data-theme="light"] .bg-slate-900 {
+  background-color: #e2e8f0 !important;
+}
+[data-theme="light"] .bg-slate-950 {
+  background-color: #e2e8f0 !important;
+}
+[data-theme="light"] .bg-slate-800\/20 {
+  background-color: rgba(226, 232, 240, 0.25) !important;
+}
+[data-theme="light"] .bg-blue-950\/20 {
+  background-color: rgba(219, 234, 254, 0.4) !important;
+}
+[data-theme="light"] .bg-blue-900\/30 {
+  background-color: rgba(191, 219, 254, 0.4) !important;
+}
+[data-theme="light"] .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+}
+[data-theme="light"] .bg-black\/75 {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ---------- Text Colors ---------- */
+[data-theme="light"] .text-white {
+  color: #0f172a !important;
+}
+[data-theme="light"] .text-slate-100 {
+  color: #1e293b !important;
+}
+[data-theme="light"] .text-slate-200 {
+  color: #334155 !important;
+}
+[data-theme="light"] .text-slate-300 {
+  color: #475569 !important;
+}
+[data-theme="light"] .text-slate-400 {
+  color: #64748b !important;
+}
+[data-theme="light"] .text-slate-500 {
+  color: #64748b !important;
+}
+[data-theme="light"] .text-slate-600 {
+  color: #475569 !important;
+}
+[data-theme="light"] .text-slate-700 {
+  color: #334155 !important;
+}
+
+/* Hover text overrides */
+[data-theme="light"] .hover\:text-white:hover {
+  color: #0f172a !important;
+}
+[data-theme="light"] .hover\:text-slate-200:hover {
+  color: #1e293b !important;
+}
+[data-theme="light"] .hover\:text-slate-300:hover {
+  color: #334155 !important;
+}
+
+/* ---------- Border Colors ---------- */
+[data-theme="light"] .border-slate-700\/40,
+[data-theme="light"] .border-slate-700\/30 {
+  border-color: rgba(203, 213, 225, 0.6) !important;
+}
+[data-theme="light"] .border-slate-800\/60,
+[data-theme="light"] .border-slate-800\/50,
+[data-theme="light"] .border-slate-800\/40,
+[data-theme="light"] .border-slate-800\/30,
+[data-theme="light"] .border-slate-800 {
+  border-color: rgba(203, 213, 225, 0.5) !important;
+}
+[data-theme="light"] .border-slate-900 {
+  border-color: rgba(203, 213, 225, 0.6) !important;
+}
+[data-theme="light"] .divide-slate-800\/40 > :not(:first-child) {
+  border-color: rgba(203, 213, 225, 0.4) !important;
+}
+
+/* Hover border overrides */
+[data-theme="light"] .hover\:border-slate-700\/30:hover {
+  border-color: rgba(148, 163, 184, 0.5) !important;
+}
+[data-theme="light"] .hover\:border-slate-600\/50:hover {
+  border-color: rgba(148, 163, 184, 0.6) !important;
+}
+
+/* ---------- CyberCard Background Overrides ---------- */
+[data-theme="light"] .bg-\[\#0f172a\]\/60 {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Grid pattern inside CyberCard */
+[data-theme="light"] .bg-\[linear-gradient\(rgba\(255\2c 255\2c 255\2c 0\.005\)_1px\2c transparent_1px\)\2c linear-gradient\(90deg\2c rgba\(255\2c 255\2c 255\2c 0\.005\)_1px\2c transparent_1px\)\] {
+  background: linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px) !important;
+}
+
+/* ---------- Inputs ---------- */
+[data-theme="light"] input.bg-\[\#030712\] {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+[data-theme="light"] input::placeholder {
+  color: #94a3b8 !important;
+}
+[data-theme="light"] textarea {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* ---------- Toggle Switches (inactive state) ---------- */
+[data-theme="light"] button.bg-slate-900 {
+  background-color: #cbd5e1 !important;
+}
+
+/* ---------- Hover Background Overrides ---------- */
+[data-theme="light"] .hover\:bg-slate-800\/20:hover {
+  background-color: rgba(226, 232, 240, 0.4) !important;
+}
+[data-theme="light"] .hover\:bg-slate-850:hover {
+  background-color: #cbd5e1 !important;
+}
+[data-theme="light"] .hover\:bg-blue-900\/30:hover {
+  background-color: rgba(191, 219, 254, 0.45) !important;
+}
+
+/* ---------- Active Nav Item ---------- */
+[data-theme="light"] .bg-blue-500\/10 {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+}
+
+/* ---------- Notification Badge & Menu ---------- */
+[data-theme="light"] .bg-\[\#0f172a\]\/85 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ---------- Cyan accent color adjustments ---------- */
+[data-theme="light"] .text-cyan-400 {
+  color: #0891b2 !important;
+}
+[data-theme="light"] .text-cyan-400\/80 {
+  color: rgba(8, 145, 178, 0.85) !important;
+}
+
+/* ---------- Scrollbar Overrides ---------- */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.8) !important;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4) !important;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.5) !important;
+}
+
+/* ---------- Selection ---------- */
+[data-theme="light"] ::selection {
+  background: rgba(37, 99, 235, 0.2) !important;
+  color: #0f172a !important;
+}
+
+/* ---------- Backdrop Blur Panels ---------- */
+[data-theme="light"] .backdrop-blur-xl,
+[data-theme="light"] .backdrop-blur-md {
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* ---------- Shadow / Glow Adjustments ---------- */
+[data-theme="light"] .shadow-\[0_0_40px_rgba\(59\2c 130\2c 246\2c 0\.15\)\] {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.08) !important;
+}
+[data-theme="light"] .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ---------- Cyber Terminal / Code blocks ---------- */
+[data-theme="light"] .font-mono.bg-\[\#030712\],
+[data-theme="light"] pre,
+[data-theme="light"] code {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+}
+
+/* ---------- Gradient text adjustments ---------- */
+[data-theme="light"] .from-slate-900\/40 {
+  --tw-gradient-from: rgba(241, 245, 249, 0.5) !important;
+}
+
+/* ---------- Extension Simulator Overrides ---------- */
+[data-theme="light"] .bg-gray-900 {
+  background-color: #f8fafc !important;
+}
+[data-theme="light"] .bg-gray-800 {
+  background-color: #f1f5f9 !important;
+}
+[data-theme="light"] .bg-gray-950 {
+  background-color: #e2e8f0 !important;
+}
+[data-theme="light"] .border-gray-700,
+[data-theme="light"] .border-gray-700\/50 {
+  border-color: #cbd5e1 !important;
+}
+[data-theme="light"] .border-gray-800 {
+  border-color: #e2e8f0 !important;
+}
+[data-theme="light"] .text-gray-400 {
+  color: #64748b !important;
+}
+[data-theme="light"] .text-gray-500 {
+  color: #64748b !important;
+}
+[data-theme="light"] .text-gray-300 {
+  color: #475569 !important;
+}
+
+/* ---------- Recharts / Dashboard Charts ---------- */
+[data-theme="light"] .recharts-cartesian-grid line {
+  stroke: #e2e8f0 !important;
+}
+[data-theme="light"] .recharts-text {
+  fill: #64748b !important;
+}
+
+/* ---------- Smooth transition for theme switch ---------- */
+[data-theme="light"] *,
+[data-theme="dark"] * {
+  transition: background-color 0.25s ease, color 0.15s ease, border-color 0.2s ease;
+}

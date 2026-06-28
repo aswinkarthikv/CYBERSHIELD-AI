@@ -1,0 +1,6 @@
+{
+  "name": "CyberShield AI",
+  "description": "Enterprise-grade AI-powered cybersecurity copilot and real-time threat response platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

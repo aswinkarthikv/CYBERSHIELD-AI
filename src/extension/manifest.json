@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "CyberShield AI Security Companion",
+  "version": "1.1.2",
+  "description": "Chrome extension sensor for active website threat parsing and secure session validation.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/shield-48.png"
+  },
+  "icons": {
+    "16": "icons/shield-16.png",
+    "48": "icons/shield-48.png",
+    "128": "icons/shield-128.png"
+  }
+}
